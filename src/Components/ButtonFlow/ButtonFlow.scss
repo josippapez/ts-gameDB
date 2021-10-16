@@ -1,0 +1,86 @@
+@use "sass:math";
+
+@mixin calculateSize() {
+  --maxvalue: max(var(--height), var(--width));
+  top: calc(50% - var(--maxvalue));
+  left: calc(50% - var(--maxvalue));
+  height: calc(var(--maxvalue) * 2);
+  width: calc(var(--maxvalue) * 2);
+}
+
+.button-flow {
+  height: var(--height);
+  width: var(--width);
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid var(--light-gray);
+  padding: 0;
+  position: relative;
+  cursor: pointer;
+  &__text {
+    color: var(--white);
+    font-size: 25px;
+    position: relative;
+    z-index: 1;
+    transition: top 0.35s ease-in-out;
+  }
+  &__background {
+    display: flex;
+    position: absolute;
+    border-radius: 43%;
+    background-color: var(--dark-gray);
+    @include calculateSize();
+    transition: top 0.5s ease-in-out;
+    animation: rotate 2s linear infinite;
+  }
+  &__colored-background {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    -webkit-animation: color-change-4x 6s linear infinite alternate both;
+    animation: color-change-4x 6s linear infinite alternate both;
+  }
+  &:hover & {
+    &__background {
+      top: calc(50% - var(--maxvalue)*2);
+      transition: top 0.35s ease-in-out;
+      animation: rotate 2s linear infinite;
+    }
+  }
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+
+@-webkit-keyframes color-change-4x {
+  0% {
+    background: #19dcea;
+  }
+  33.3333% {
+    background: #b22cff;
+  }
+  66.666% {
+    background: #ea2222;
+  }
+  100% {
+    background: #f5be10;
+  }
+}
+@keyframes color-change-4x {
+  0% {
+    background: #19dcea;
+  }
+  33.3333% {
+    background: #b22cff;
+  }
+  66.666% {
+    background: #ea2222;
+  }
+  100% {
+    background: #f5be10;
+  }
+}

@@ -1,0 +1,86 @@
+.game-item {
+  border: 1px solid transparent;
+  border-radius: 4px;
+  transition: height 0.25s ease-in-out, width 0.25s ease-in-out,
+    left 0.25s ease-in-out, transform 0.2s, z-index 0.25s ease-in-out;
+  -moz-transition: height 0.25s ease-in-out, width 0.25s ease-in-out,
+    left 0.25s ease-in-out, transform 0.2s, z-index 0.25s ease-in-out;
+  -webkit-transition: height 0.25s ease-in-out, width 0.25s ease-in-out,
+    left 0.25s ease-in-out, transform 0.2s, z-index 0.25s ease-in-out;
+  -o-transition: height 0.25s ease-in-out, width 0.25s ease-in-out,
+    left 0.25s ease-in-out, transform 0.2s, z-index 0.25s ease-in-out;
+  position: relative;
+  z-index: 1;
+
+  &__screenshot {
+    border-radius: 4px 4px 0 0;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  &__body {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding: 10px 15px;
+    background-color: var(--card-background);
+    border-radius: 0 0 4px 4px;
+    transition: height 0.25s ease-in-out;
+    -moz-transition: height 0.25s ease-in-out;
+    -webkit-transition: height 0.25s ease-in-out;
+    -o-transition: height 0.25s ease-in-out;
+
+    &__text {
+      color: var(--main-text);
+      &.main-text {
+        font-size: 24px;
+        font-family: "Bold";
+      }
+    }
+    &__main-body {
+      height: auto;
+      min-height: 80px;
+    }
+    &__extension {
+      background-color: var(--card-background);
+      border-radius: 0 0 4px 4px;
+      bottom: calc(0% + 1px);
+      position: absolute;
+      overflow: hidden;
+      height: 0;
+      width: 100%;
+      transition: height 0.25s ease-in-out, bottom 0.25s ease-in-out;
+      -moz-transition: height 0.25s ease-in-out, bottom 0.25s ease-in-out;
+      -webkit-transition: height 0.25s ease-in-out, bottom 0.25s ease-in-out;
+      -o-transition: height 0.25s ease-in-out, bottom 0.25s ease-in-out;
+    }
+  }
+  &:hover {
+    z-index: 5;
+    border-bottom: none;
+    -webkit-transform: scale(1.05);
+    -ms-transform: scale(1.05);
+    transform: scale(1.05);
+    transition: transform 0.2s, z-index 0.25s ease-in-out;
+    -moz-transition: transform 0.2s, z-index 0.25s ease-in-out;
+    -webkit-transition: transform 0.2s, z-index 0.25s ease-in-out;
+    -o-transition: transform 0.2s, z-index 0.25s ease-in-out;
+  }
+  &:hover & {
+    &__body {
+      &__extension {
+        height: 50%;
+        bottom: calc(-50% + 1px);
+        padding: 0px 15px 10px 15px;
+        transition: height 0.25s ease-in-out, bottom 0.25s ease-in-out;
+        -moz-transition: height 0.25s ease-in-out, bottom 0.25s ease-in-out;
+        -webkit-transition: height 0.25s ease-in-out, bottom 0.25s ease-in-out;
+        -o-transition: height 0.25s ease-in-out, bottom 0.25s ease-in-out;
+      }
+    }
+  }
+}

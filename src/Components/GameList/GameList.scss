@@ -1,0 +1,10 @@
+.game-list {
+  margin-top: 20px;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, 300px);
+  justify-content: left;
+  &__column > * + * {
+    margin-top: 24px;
+  }
+}

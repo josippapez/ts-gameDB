@@ -1,58 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
-import './App.css';
+import { useRef } from "react";
+import Homepage from "./Components/Homepage";
+import Navbar from "./Components/Shared/Navbar/Navbar";
+import { fetchGames } from "./store/actions/gamesAtions";
+import { useAppDispatch, useAppSelector } from "./store/hooks";
 
-function App() {
+const App = (): JSX.Element => {
+  const dispatch = useAppDispatch();
+  const theme = useAppSelector(state => state.theme);
+
+  const page = useRef(1);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
-      </header>
+    <div
+      className={`App ${theme.theme ? "darkmode" : "lightmode"}`}
+      onScroll={e => {
+        const element = e.target as Element;
+        if (element.scrollHeight - element.scrollTop === element.clientHeight) {
+          dispatch(fetchGames(page.current + 1));
+          page.current += 1;
+        }
+      }}
+    >
+      <Navbar />
+      <Homepage />
     </div>
   );
-}
+};
 
 export default App;

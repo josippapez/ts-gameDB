@@ -1,0 +1,47 @@
+:root {
+  --border-color: #e2e2e3;
+
+  --unnamed-color-f9fafb: #f9fafb;
+  --success-text: #21ba45;
+  --unnamed-color-f05a5c: #f05a5c;
+  --alert-text: #db2828;
+  --hyperlink: #0b88ff;
+  --brand-blue: #005ba7;
+  --dark-gray: #363636;
+
+  --main-text: #000000cc;
+  --light: #00000066;
+  --white: #ffffff;
+  --light-gray: #dededf;
+  --faded-gray: #b5b5b5;
+
+  --hover: #f8f8f8;
+
+  --page-content-background: #ffffff;
+  --card-background: #e2e2e2;
+
+  .App:is(.lightmode) {
+    -webkit-transition: all 0.2s 0s ease;
+    -moz-transition: all 0.2s 0s ease;
+    -o-transition: all 0.2s 0s ease;
+    transition: all 0.2s 0s ease;
+  }
+  .App:is(.darkmode) {
+    -webkit-transition: all 0.2s 0s ease;
+    -moz-transition: all 0.2s 0s ease;
+    -o-transition: all 0.2s 0s ease;
+    transition: all 0.2s 0s ease;
+    /* Darkmode Colors: */
+    --page-content-background: #131313;
+
+    --card-background: #212121;
+
+    --main-text: #ffffff;
+    --light: #00000066;
+    --hover: #f8f8f8;
+
+    --light-dark-background: #363636;
+    --input-dark-background: #444444;
+    --input-darker-background: #131313;
+  }
+}
