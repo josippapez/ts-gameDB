@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import Homepage from "./Components/Homepage";
 import Navbar from "./Components/Shared/Navbar/Navbar";
-import { fetchGames } from "./store/actions/gamesAtions";
+import { fetchGames } from "./store/actions/gamesActions";
 import { useAppDispatch, useAppSelector } from "./store/hooks";
 
 const App = (): JSX.Element => {

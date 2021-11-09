@@ -1,0 +1,16 @@
+version: "3.5"
+services:
+  frontend:
+    container_name: ts-gamedb_fe
+    image: ts-gamedb_frontend
+    restart: always
+    build:
+      context: ./
+      dockerfile: ./docker/dockerfile.dev
+    volumes:
+      - .:/app
+    ports:
+     - 3000:3000
+    environment:
+      - PORT=3000
+    tty: true

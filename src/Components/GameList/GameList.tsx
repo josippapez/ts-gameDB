@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { fetchGames } from "../../store/actions/gamesAtions";
+import { fetchGames } from "../../store/actions/gamesActions";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import { Game } from "../../store/reducers/games";
 import GameItem from "./GameItem/GameItem";
