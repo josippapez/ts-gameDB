@@ -11,16 +11,21 @@ export interface Game {
 }
 export interface GamesState {
   games: null | Game[];
+  searchByName: boolean;
 }
 
 const initialState: GamesState = {
   games: null,
+  searchByName: false,
 };
 
 export const gamesSlice = createSlice({
   name: "games",
   initialState,
   reducers: {
+    setSearchByName: (state, action: PayloadAction<boolean>) => {
+      state.searchByName = action.payload;
+    },
     setGames: (state, action: PayloadAction<Game[]>) => {
       state.games = action.payload;
     },
@@ -33,6 +38,6 @@ export const gamesSlice = createSlice({
   },
 });
 
-export const { setGames, addGames } = gamesSlice.actions;
+export const { setGames, addGames, setSearchByName } = gamesSlice.actions;
 
 export default gamesSlice.reducer;

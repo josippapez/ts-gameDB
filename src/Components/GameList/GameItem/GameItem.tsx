@@ -21,7 +21,12 @@ const GameItem = (props: Props): JSX.Element => {
     >
       <div
         className="game-item__screenshot"
-        style={{ backgroundImage: `url(${game.short_screenshots[0].image})` }}
+        style={{
+          backgroundImage:
+            game.short_screenshots &&
+            game.short_screenshots[0] &&
+            `url(${game.short_screenshots[0].image})`,
+        }}
       />
       <div className="game-item__body">
         <div className="game-item__body__main-body">

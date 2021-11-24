@@ -19,6 +19,7 @@
 
   --page-content-background: #ffffff;
   --card-background: #e2e2e2;
+  --input-background: #e2e2e2;
 
   .App:is(.lightmode) {
     -webkit-transition: all 0.2s 0s ease;
@@ -41,7 +42,7 @@
     --hover: #f8f8f8;
 
     --light-dark-background: #363636;
-    --input-dark-background: #444444;
+    --input-background: #444444;
     --input-darker-background: #131313;
   }
 }
